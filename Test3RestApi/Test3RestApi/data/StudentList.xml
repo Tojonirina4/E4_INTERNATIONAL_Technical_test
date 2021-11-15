@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Students>
+  <Student Id="0e9a511171f14fe2a2c9e25282f36687">
+    <Fullname>tets</Fullname>
+    <Nationality>Malagasy</Nationality>
+  </Student>
+  <Student Id="9c9ffb41bc5c4bc49323f8024b2e64c6">
+    <Fullname>Ramaroson Tojo</Fullname>
+    <Nationality>Malagasy</Nationality>
+  </Student>
+  <Student Id="96503c0df6eb4e81add4dfc94e7b2531">
+    <Fullname>Ramaroson Hoby</Fullname>
+    <Nationality>Malagasy</Nationality>
+  </Student>
+  <Student Id="8e1e865c5afd4d9e8e3af39cf1417ebb">
+    <Fullname>Vola Liantsoa</Fullname>
+    <Nationality>German</Nationality>
+  </Student>
+</Students>
