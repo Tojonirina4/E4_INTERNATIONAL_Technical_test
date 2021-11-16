@@ -1,0 +1,1 @@
+# Test1  : return 0 for empty string
