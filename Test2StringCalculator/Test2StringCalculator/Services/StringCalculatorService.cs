@@ -9,7 +9,8 @@ namespace Test2StringCalculator.Services
     {
         public int Add(string stringToCompute)
         {
-            return 0;
+            if (string.IsNullOrEmpty(stringToCompute)) return 0;
+            return int.Parse(stringToCompute);
         }
     }
 }
