@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Users>
   <User Id="61b3d5b41234416499a49baf909e1777">
-    <Username>andriamparanyR</Username>
+    <Username>andriamparanyr</Username>
     <Surname>Razafy</Surname>
     <CellphoneNumber>526315218</CellphoneNumber>
   </User>
@@ -14,10 +14,5 @@
     <Username>t.nirina</Username>
     <Surname>nirina</Surname>
     <CellphoneNumber>23058632654</CellphoneNumber>
-  </User>
-  <User Id="304bf85dc0c7424c95e2d38af2bca535">
-    <Username>z.beekaree</Username>
-    <Surname>karim</Surname>
-    <CellphoneNumber>1223153213</CellphoneNumber>
   </User>
 </Users>
