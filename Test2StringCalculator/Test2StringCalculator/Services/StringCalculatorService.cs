@@ -10,7 +10,9 @@ namespace Test2StringCalculator.Services
         public int Add(string stringToCompute)
         {
             if (string.IsNullOrEmpty(stringToCompute)) return 0;
-            return int.Parse(stringToCompute);
+            var splitedNumbers = stringToCompute.Split(',');
+            var result = splitedNumbers.Select(x => int.Parse(x)).Sum();
+            return result;
         }
     }
 }

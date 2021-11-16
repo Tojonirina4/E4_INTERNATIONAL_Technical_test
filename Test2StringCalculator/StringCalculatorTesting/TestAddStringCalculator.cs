@@ -22,5 +22,37 @@ namespace StringCalculatorTesting
             var result = calculator.Add(numbers);
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("1, 1", 2)]
+        [InlineData("2, 1", 3)]
+        [InlineData("2, 2, 5", 9)]
+        [InlineData("3, 2, 5", 10)]
+        public void Add_MoreThanOneString_ReturnsSum(string numbers, int expectedResult)
+        {
+            var calculator = new StringCalculatorService();
+            var result = calculator.Add(numbers);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Theory]
+        [InlineData("1\n, 2, 3", 6)]
+        [InlineData("1\n, 5\n, 3", 9)]
+        public void Add_StringWithNewLine_ReturnsSum(string numbers, int expectedResult)
+        {
+            var calculator = new StringCalculatorService();
+            var result = calculator.Add(numbers);
+            Assert.Equal(expectedResult, result);
+        }
+
+
+        [Theory]
+        [InlineData("//;\n1;2", 3)]
+        public void Add_StringWithCustomDelimiter_ReturnsSum(string numbers, int expectedResult)
+        {
+            var calculator = new StringCalculatorService();
+            var result = calculator.Add(numbers);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
