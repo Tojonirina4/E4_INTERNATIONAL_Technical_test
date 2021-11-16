@@ -1,8 +1,35 @@
-﻿@{
+﻿@model StringCalculator
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    @if (@TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+    @if (@TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    <form method="post" asp-action="Index">
+        <div class="border p-3">
+            <div class="form-group row">
+                <h2 class="text-black-50 pl-3">Welcome to StringCalculator</h2>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <input asp-for="Numbers" class="form-control" />
+                    <span asp-validation-for="Numbers" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <input type="submit" class="btn btn-info w-75" value="Compute" />
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
