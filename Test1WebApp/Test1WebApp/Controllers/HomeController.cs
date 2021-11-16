@@ -66,6 +66,91 @@ namespace Test1WebApp.Controllers
             return View(user);
         }
 
+        //Get delete
+        public IActionResult Delete(string? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+            XDocument xdoc = XDocument.Load(xmlFile);
+            var selectedUser = xdoc.Root.Descendants("User").FirstOrDefault(x => x.Attribute("Id").Value == Id);
+            if (selectedUser == null)
+            {
+                return NotFound();
+            }
+            return View(new User
+            {
+                Id = selectedUser.Attribute("Id").Value,
+                Username = selectedUser.Element("Username").Value,
+                Surname = selectedUser.Element("Surname").Value,
+                CellphoneNumber = selectedUser.Element("CellphoneNumber").Value
+            });
+        }
+
+        //Get update
+        public IActionResult Update(string? Id)
+        {
+            if (Id == null)
+            {
+                return NotFound();
+            }
+            XDocument xdoc = XDocument.Load(xmlFile);
+            var selectedUser = xdoc.Root.Descendants("User").FirstOrDefault(x => x.Attribute("Id").Value == Id);
+            if (selectedUser == null)
+            {
+                return NotFound();
+            }
+            return View(new User
+            {
+                Id = selectedUser.Attribute("Id").Value,
+                Username = selectedUser.Element("Username").Value,
+                Surname = selectedUser.Element("Surname").Value,
+                CellphoneNumber = selectedUser.Element("CellphoneNumber").Value
+            });
+        }
+
+        //POST update action
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Update(User user)
+        {
+            ////save user
+            if (ModelState.IsValid)
+            {
+                XDocument xdoc = XDocument.Load(xmlFile);
+                var duplicatedUser = xdoc.Root.Descendants("User").FirstOrDefault(x => x.Element("Username").Value == user.Username && x.Attribute("Id").Value != user.Id);
+                //Assuming that username must be Unique
+                if (duplicatedUser == null)
+                {
+                    var userToUpdate = xdoc.Root.Descendants("User").FirstOrDefault(x =>  x.Attribute("Id").Value == user.Id);
+                    userToUpdate.Element("Username").Value = user.Username;
+                    userToUpdate.Element("Surname").Value = user.Surname;
+                    userToUpdate.Element("CellphoneNumber").Value = user.CellphoneNumber;
+                    xdoc.Save(xmlFile);
+                    return RedirectToAction("Index");
+                }
+                TempData["ErrorMessage"] = $"Username {duplicatedUser.Element("Username").Value} already exists!";
+            }
+            return View(user);
+        }
+
+        //POST delete action
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult DeletePost(string? Id)
+        {
+            XDocument xdoc = XDocument.Load(xmlFile);
+            var selectedUser = xdoc.Root.Descendants("User").FirstOrDefault(x => x.Attribute("Id").Value == Id);
+            if (selectedUser == null)
+            {
+                return NotFound();
+            }
+            selectedUser.Remove();
+            xdoc.Save(xmlFile);
+            return RedirectToAction("Index");
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

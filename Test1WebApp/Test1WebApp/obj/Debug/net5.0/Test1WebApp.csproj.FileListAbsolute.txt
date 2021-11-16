@@ -356,3 +356,5 @@ C:\Workspace\Perso\Technical_Test\E4\E4_INTERNATIONAL_Technical_test\Test1WebApp
 C:\Workspace\Perso\Technical_Test\E4\E4_INTERNATIONAL_Technical_test\Test1WebApp\Test1WebApp\obj\Debug\net5.0\Test1WebApp.pdb
 C:\Workspace\Perso\Technical_Test\E4\E4_INTERNATIONAL_Technical_test\Test1WebApp\Test1WebApp\obj\Debug\net5.0\Test1WebApp.genruntimeconfig.cache
 C:\Workspace\Perso\Technical_Test\E4\E4_INTERNATIONAL_Technical_test\Test1WebApp\Test1WebApp\obj\Debug\net5.0\Razor\Views\Home\Create.cshtml.g.cs
+C:\Workspace\Perso\Technical_Test\E4\E4_INTERNATIONAL_Technical_test\Test1WebApp\Test1WebApp\obj\Debug\net5.0\Razor\Views\Home\Delete.cshtml.g.cs
+C:\Workspace\Perso\Technical_Test\E4\E4_INTERNATIONAL_Technical_test\Test1WebApp\Test1WebApp\obj\Debug\net5.0\Razor\Views\Home\Update.cshtml.g.cs

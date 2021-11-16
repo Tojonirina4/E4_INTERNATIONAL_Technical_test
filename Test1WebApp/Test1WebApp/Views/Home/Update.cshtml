@@ -1,6 +1,6 @@
 ﻿@model User
 @{
-    ViewData["Title"] = "Add User";
+    ViewData["Title"] = "Update User";
 }
 @if (@TempData["ErrorMessage"] != null)
 {
@@ -8,7 +8,8 @@
         @TempData["ErrorMessage"]
     </div>
 }
-<form method="post" asp-action="Create">
+<form method="post" asp-action="Update">
+    <input asp-for="Id" hidden />
     <div class="border p-3">
         <div class="form-group row">
             <h2 class="text-black-50 pl-3">Add New User</h2>
@@ -43,7 +44,7 @@
                 <div class="form-group row">
                     <div class="col-8 offset-2 row">
                         <div class="col">
-                            <input type="submit" class="btn btn-info w-75" value="create" />
+                            <input type="submit" class="btn btn-info w-75" value="update" />
                         </div>
                         <div class="col">
                             <a asp-action="Index" class="btn btn-danger w-75">Cancel</a>
